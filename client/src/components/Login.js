@@ -61,11 +61,11 @@ const FormikLogin = withRouter(withFormik({
       console.log(users);
       axios.post('http://localhost:5000/api/login', users)
           .then(res => {
-            console.log(res);
+            console.log('login from ',res);
             localStorage.setItem('token', res.data.payload)
-            props.history.push('/api/colors')
+            props.history.push('/colors')
           })
-          .catch(err => console.log(err));
+          .catch(err => console.log(err.response));
           
   }
 })(Login))
